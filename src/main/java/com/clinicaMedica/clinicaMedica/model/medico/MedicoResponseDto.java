@@ -1,6 +1,4 @@
-package com.clinicaMedica.clinicaMedica.domain.medico;
-
-import com.clinicaMedica.clinicaMedica.domain.especialidade.Especialidade;
+package com.clinicaMedica.clinicaMedica.model.medico;
 
 
 public record MedicoResponseDto( Long id,
@@ -10,6 +8,6 @@ public record MedicoResponseDto( Long id,
 ) {
 
     public MedicoResponseDto(Medico medico) {
-        this(medico.getId(), medico.getNome(), medico.getCrm(), medico.getEspecialidade().getDescricao());
+        this(medico.getId(), medico.getNome(), medico.getCrm(), medico.getEspecialidades().toString());
     }
 }

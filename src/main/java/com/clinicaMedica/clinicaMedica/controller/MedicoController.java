@@ -1,7 +1,7 @@
 package com.clinicaMedica.clinicaMedica.controller;
 
-import com.clinicaMedica.clinicaMedica.domain.medico.MedicoRequestDto;
-import com.clinicaMedica.clinicaMedica.domain.medico.MedicoResponseDto;
+import com.clinicaMedica.clinicaMedica.model.medico.MedicoRequestDto;
+import com.clinicaMedica.clinicaMedica.model.medico.MedicoResponseDto;
 import com.clinicaMedica.clinicaMedica.service.MedicoService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

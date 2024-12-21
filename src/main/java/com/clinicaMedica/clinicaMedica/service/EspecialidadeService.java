@@ -1,66 +1,58 @@
 package com.clinicaMedica.clinicaMedica.service;
 
+
 import com.clinicaMedica.clinicaMedica.Repository.EspecialidadeRespository;
-import com.clinicaMedica.clinicaMedica.domain.especialidade.Especialidade;
-import com.clinicaMedica.clinicaMedica.domain.especialidade.EspecialidadeRequestDto;
-import com.clinicaMedica.clinicaMedica.domain.especialidade.EspecialidadeResponseDto;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.clinicaMedica.clinicaMedica.model.especialidade.Especialidade;
+import com.clinicaMedica.clinicaMedica.model.especialidade.EspecialidadeRequestDto;
+import com.clinicaMedica.clinicaMedica.model.especialidade.EspecialidadeResponseDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
+
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
-
 @Service
+@RequiredArgsConstructor
 public class EspecialidadeService {
 
-    @Autowired
-    private EspecialidadeRespository respository;
 
-    public EspecialidadeResponseDto cadastrar(EspecialidadeRequestDto especialidadeDto){
+    private final EspecialidadeRespository respository;
 
-        var especialidade = new Especialidade(especialidadeDto.descricao());
+    public EspecialidadeResponseDto cadastrar(EspecialidadeRequestDto dto){
+
+        var especialidade = new Especialidade();
+        especialidade.setDescricao(dto.descricao());
+        especialidade.setAceitaPlano(dto.aceitaPlano());
         respository.save(especialidade);
 
         return new EspecialidadeResponseDto(especialidade);
     }
     public Page<EspecialidadeResponseDto> listarTodos(Pageable pageable){
 
-        List<Especialidade> especialidadeList = respository.findAll();
-
-        var listespecialidade = especialidadeList.stream()
-                                    .map(e -> new EspecialidadeResponseDto(e))
-                                    .toList();
-
-        return new PageImpl<>(listespecialidade, pageable, listespecialidade.size());
+        Page<Especialidade> especialidadePage = respository.findAll(pageable);
+        return especialidadePage.map(EspecialidadeResponseDto::new);
 
    }
 
    public EspecialidadeResponseDto listarPorId(Long id){
-        Optional<Especialidade> especialidade = respository.findById(id);
-        return new EspecialidadeResponseDto(especialidade.get());
+        var especialidade = respository.findById(id).orElseThrow(()->new RuntimeException("Especialidade não encontrada."));
+        return new EspecialidadeResponseDto(especialidade);
    }
 
    public EspecialidadeResponseDto alterar(Long id, EspecialidadeRequestDto especialidadeDto){
-        Optional<Especialidade> especialidade = respository.findById(id);
+        var especialidade = respository.findById(id).orElseThrow(()->new RuntimeException("Especialidade não encontrada."));
+        especialidade.setDescricao(especialidadeDto.descricao());
+        especialidade.setAceitaPlano(especialidadeDto.aceitaPlano());
+        respository.save(especialidade);
 
-        especialidade.get().setDescricao(especialidadeDto.descricao());
-        System.out.println(especialidade.get());
-        respository.save(especialidade.get());
-        var especialidadeResponseDto = new EspecialidadeResponseDto(especialidade.get());
-
-        return especialidadeResponseDto;
+        return new EspecialidadeResponseDto(especialidade);
    }
 
    public void excluir(Long id){
 
-       Optional<Especialidade> especialidade = respository.findById(id);
+       var especialidade = respository.findById(id).orElseThrow(()-> new RuntimeException("Especialidade não encontrada."));
 
-       respository.delete(especialidade.get());
+       respository.delete(especialidade);
 
    }
 
