@@ -1,6 +1,7 @@
 package com.clinicaMedica.clinicaMedica.model.medico;
 
 
+import com.clinicaMedica.clinicaMedica.model.especialidade.Especialidade;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
@@ -13,5 +14,8 @@ public record MedicoRequestDto( @NotBlank
                                 @Pattern(regexp = "\\d{4,6}")
                                 String crm,
                                 Set<Long> especialidadesIds // IDs das especialidades
+
                                 ) {
+
+
 }

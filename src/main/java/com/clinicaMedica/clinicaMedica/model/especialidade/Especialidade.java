@@ -11,7 +11,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Table(name = "especialidades")
@@ -19,6 +20,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Especialidade {
 
     @Id
@@ -29,7 +31,27 @@ public class Especialidade {
     @JsonSerialize(using = SimNaoSerializer.class)
     private SimNao aceitaPlano;
     @ManyToMany(mappedBy = "especialidades", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Medico> medicos;
+    private Set<Medico> medicos = new HashSet<>();
 
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Especialidade that = (Especialidade) object;
+        return Objects.equals(id, that.id);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Especialidade{" +
+                "id=" + id +
+                ", descricao='" + descricao + '\'' +
+                ", aceitaPlano=" + aceitaPlano +
+                '}';
+    }
 }

@@ -1,13 +1,30 @@
 package com.clinicaMedica.clinicaMedica.model.medico;
 
 
-public record MedicoResponseDto( Long id,
-                                 String nome,
-                                 String crm,
-                                 String especialidade
+import com.clinicaMedica.clinicaMedica.model.especialidade.Especialidade;
+
+import java.util.Set;
+import java.util.stream.Collectors;
+
+
+public record MedicoResponseDto(Long id,
+                                String nome,
+                                String crm,
+                                Set<String> especialidades
+
 ) {
 
-    public MedicoResponseDto(Medico medico) {
-        this(medico.getId(), medico.getNome(), medico.getCrm(), medico.getEspecialidades().toString());
+
+    public MedicoResponseDto(Long id, String nome, String crm, Set<String> especialidades) {
+        this.id = id;
+        this.nome = nome;
+        this.crm = crm;
+        this.especialidades = especialidades;
     }
+
+
+
+
+
+
 }
