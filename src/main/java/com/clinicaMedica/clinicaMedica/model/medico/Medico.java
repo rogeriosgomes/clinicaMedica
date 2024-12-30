@@ -1,5 +1,6 @@
 package com.clinicaMedica.clinicaMedica.model.medico;
 
+import com.clinicaMedica.clinicaMedica.model.Prontuario.Prontuario;
 import com.clinicaMedica.clinicaMedica.model.especialidade.Especialidade;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -23,6 +25,8 @@ public class Medico {
     private Long id;
     private String nome;
     private String crm;
+    @OneToMany(mappedBy = "medico")
+    private List<Prontuario> prontuarios;
     @ManyToMany
     @JoinTable(
             name="medico_especialidade", //nome da tabela intermediaria
@@ -31,13 +35,5 @@ public class Medico {
     )
     private Set<Especialidade> especialidades = new HashSet<>();
 
-//    @Override
-//    public String toString() {
-//        return "Medico{" +
-//                "nome='" + nome + '\'' +
-//                ", id=" + id +
-//                ", crm='" + crm + '\'' +
-//                ", especialidades=" + especialidades.toString() +
-//                '}';
-//    }
+
 }
