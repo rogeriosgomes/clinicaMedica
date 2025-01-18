@@ -1,4 +1,4 @@
-package com.clinicaMedica.clinicaMedica.model.Paciente;
+package com.clinicaMedica.clinicaMedica.model.paciente;
 
 import com.clinicaMedica.clinicaMedica.infra.Anotacao.CpfUnico;
 import jakarta.validation.constraints.Email;

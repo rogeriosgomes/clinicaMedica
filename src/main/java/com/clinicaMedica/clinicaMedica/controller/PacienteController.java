@@ -1,11 +1,10 @@
 package com.clinicaMedica.clinicaMedica.controller;
 
-import com.clinicaMedica.clinicaMedica.model.Paciente.PacienteRequestDto;
-import com.clinicaMedica.clinicaMedica.model.Paciente.PacienteResponseDto;
+import com.clinicaMedica.clinicaMedica.model.paciente.PacienteRequestDto;
+import com.clinicaMedica.clinicaMedica.model.paciente.PacienteResponseDto;
 import com.clinicaMedica.clinicaMedica.service.PacienteService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,5 @@
-package com.clinicaMedica.clinicaMedica.model.Prontuario;
+package com.clinicaMedica.clinicaMedica.model.prontuario;
 
-import com.clinicaMedica.clinicaMedica.model.Paciente.Paciente;
-import com.clinicaMedica.clinicaMedica.model.medico.Medico;
 import java.time.LocalDate;
 
 public record ProntuarioRequestDto(

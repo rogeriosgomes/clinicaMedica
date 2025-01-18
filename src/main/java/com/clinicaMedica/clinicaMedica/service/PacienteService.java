@@ -1,9 +1,9 @@
 package com.clinicaMedica.clinicaMedica.service;
 
 import com.clinicaMedica.clinicaMedica.Repository.PacienteRepository;
-import com.clinicaMedica.clinicaMedica.model.Paciente.Paciente;
-import com.clinicaMedica.clinicaMedica.model.Paciente.PacienteRequestDto;
-import com.clinicaMedica.clinicaMedica.model.Paciente.PacienteResponseDto;
+import com.clinicaMedica.clinicaMedica.model.paciente.Paciente;
+import com.clinicaMedica.clinicaMedica.model.paciente.PacienteRequestDto;
+import com.clinicaMedica.clinicaMedica.model.paciente.PacienteResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

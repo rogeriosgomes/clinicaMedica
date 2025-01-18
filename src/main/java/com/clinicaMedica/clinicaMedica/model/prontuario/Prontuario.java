@@ -1,12 +1,11 @@
-package com.clinicaMedica.clinicaMedica.model.Prontuario;
+package com.clinicaMedica.clinicaMedica.model.prontuario;
 
-import com.clinicaMedica.clinicaMedica.model.Paciente.Paciente;
+import com.clinicaMedica.clinicaMedica.model.paciente.Paciente;
 import com.clinicaMedica.clinicaMedica.model.medico.Medico;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
 

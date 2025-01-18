@@ -1,7 +1,4 @@
-package com.clinicaMedica.clinicaMedica.model.Prontuario;
-
-import com.clinicaMedica.clinicaMedica.model.Paciente.Paciente;
-import com.clinicaMedica.clinicaMedica.model.medico.Medico;
+package com.clinicaMedica.clinicaMedica.model.prontuario;
 
 import java.time.LocalDate;
 
