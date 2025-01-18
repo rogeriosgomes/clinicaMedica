@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -27,6 +29,15 @@ public class Medico {
             joinColumns = @JoinColumn(name = "medico_id"), // FK para medico
             inverseJoinColumns = @JoinColumn(name = "especialidade_id") // FK para especialidade
     )
-    private Set<Especialidade> especialidades;
+    private Set<Especialidade> especialidades = new HashSet<>();
 
+//    @Override
+//    public String toString() {
+//        return "Medico{" +
+//                "nome='" + nome + '\'' +
+//                ", id=" + id +
+//                ", crm='" + crm + '\'' +
+//                ", especialidades=" + especialidades.toString() +
+//                '}';
+//    }
 }
