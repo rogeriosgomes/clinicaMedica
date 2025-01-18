@@ -3,13 +3,12 @@ package com.clinicaMedica.clinicaMedica.service;
 import com.clinicaMedica.clinicaMedica.Repository.MedicoRepository;
 import com.clinicaMedica.clinicaMedica.Repository.PacienteRepository;
 import com.clinicaMedica.clinicaMedica.Repository.ProntuarioRepository;
-import com.clinicaMedica.clinicaMedica.model.Prontuario.Prontuario;
-import com.clinicaMedica.clinicaMedica.model.Prontuario.ProntuarioRequestDto;
-import com.clinicaMedica.clinicaMedica.model.Prontuario.ProntuarioResponseDto;
+import com.clinicaMedica.clinicaMedica.model.prontuario.Prontuario;
+import com.clinicaMedica.clinicaMedica.model.prontuario.ProntuarioRequestDto;
+import com.clinicaMedica.clinicaMedica.model.prontuario.ProntuarioResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service

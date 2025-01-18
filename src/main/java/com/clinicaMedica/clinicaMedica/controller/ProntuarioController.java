@@ -1,7 +1,7 @@
 package com.clinicaMedica.clinicaMedica.controller;
 
-import com.clinicaMedica.clinicaMedica.model.Prontuario.ProntuarioRequestDto;
-import com.clinicaMedica.clinicaMedica.model.Prontuario.ProntuarioResponseDto;
+import com.clinicaMedica.clinicaMedica.model.prontuario.ProntuarioRequestDto;
+import com.clinicaMedica.clinicaMedica.model.prontuario.ProntuarioResponseDto;
 import com.clinicaMedica.clinicaMedica.service.ProntuarioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -9,7 +9,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController

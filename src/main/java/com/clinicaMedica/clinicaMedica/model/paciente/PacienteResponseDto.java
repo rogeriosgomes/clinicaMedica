@@ -1,4 +1,4 @@
-package com.clinicaMedica.clinicaMedica.model.Paciente;
+package com.clinicaMedica.clinicaMedica.model.paciente;
 
 import java.time.LocalDate;
 

@@ -1,6 +1,6 @@
-package com.clinicaMedica.clinicaMedica.model.Paciente;
+package com.clinicaMedica.clinicaMedica.model.paciente;
 
-import com.clinicaMedica.clinicaMedica.model.Prontuario.Prontuario;
+import com.clinicaMedica.clinicaMedica.model.prontuario.Prontuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
